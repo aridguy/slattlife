@@ -1,0 +1,593 @@
+@import url("https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Silkscreen:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
+
+/* Apply the custom cursor */
+.btn-whatsapp{
+  background-color: #1e7bc8;
+  color: white;
+}
+
+.btn-whatsapp:hover{
+  background-color: #0f4f83;
+  color: white
+
+}
+
+.full_border{
+  border: 1px solid grey;
+}
+
+
+body,
+html {
+  /* Reset default margin and padding */
+  margin: 0;
+  padding: 0;
+  /* height: 100%; */
+}
+
+.glitch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  text-align: center;
+}
+
+.app-container {
+  width: 100%;
+  height: 100%;
+  background-image: url("./images/frame.PNG");
+  background-size: 100% 100%;
+  position: absolute;
+  z-index: -7;
+  top: 0;
+  left: 0;
+  /* display: flex; */
+  justify-content: center;
+  text-align: center;
+  background-color: rgb(0, 0, 0);
+}
+
+.--secondlevel-parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80vh; 
+  padding: 0 20px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+ 
+}
+
+
+
+/* ImageGrid.css */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+
+
+}
+
+.image-grid img {
+  width: 50%;
+  height: auto;
+  
+}
+
+@media (max-width: 768px) {
+  .image-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .image-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .image-grid img {
+    width: 100%;
+    height: auto;
+  }
+  
+}
+
+
+
+
+/* Responsive image */
+img.landing-image {
+  width: 75%;
+  height: auto;
+  margin-top: 3em;
+}
+
+.press-start {
+  font-family: "press Start 2P";
+  font-size: 3rem;
+  z-index: 1;
+  position: relative;
+  /* bottom: 12px; */
+}
+
+.text-center a {
+  font-size: 1rem; /* Adjust icon size */
+}
+
+.copyrights {
+  margin-top: 20px;
+}
+
+
+/* COMUNITY CSS ONLY */
+.call-to-action{
+  background-image: url(../src/Assets/call-to-action.jpg);
+  height: 20em;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.comm_wrap {
+  background-color: rgb(242, 191, 94);
+  width: 100%;
+  height: 28em;
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+
+/* MENU SECTION OF APPLIUCATION */
+.app-containerMenu {
+  width: 100%;
+  height: 100%;
+  background-image: url("./images/frame.PNG");
+  background-size: 100% 100%;
+  position: absolute;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  background-color: rgb(0, 0, 0);
+}
+
+.page-parent{
+  list-style: none;
+}
+
+.buy_btn{
+  width: 100%;
+  height: 3em;
+  border-radius: 5px;
+}
+.love_btn{
+  width: 100%;
+  height: 3em;
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px solid black;
+}
+.text-fade {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+
+.cursor {
+  cursor: pointer;
+}
+#farward {
+  z-index: 9999;
+}
+.inputs {
+  border: 2.1px solid rgb(255, 255, 255);
+  outline: none;
+  width: 27em !important;
+  margin-top: -0.9em;
+  height: 4em;
+  border-radius: 7px;
+  padding-left: 1em;
+  color: rgb(145, 43, 43);
+  background-color: transparent;
+  font-family: "Silkscreen", sans-serif;
+  font-size: 10px;
+
+  /* position: relative;  */
+  /* font-size: 7px; */
+}
+
+a {
+  color: white;
+}
+
+a:focus {
+  color: white;
+}
+
+/* .brandNameMenu {
+  font-family: "Press Start 2P";
+  margin-top: 8em;
+} */
+button {
+  border: 2.1px solid white;
+  background-color: transparent;
+  outline: none;
+  margin-top: 1.3em;
+
+  z-index: 200; /* Make sure buttons are also in front */
+  position: relative; /* Ensure the z-index works by setting position to relative */
+}
+.maquee {
+  font-family: "Press Start 2P";
+  font-size: 10px;
+  /* text-align: center; */
+}
+
+input:focus {
+  background-color: transparent;
+}
+
+.sendBtn {
+  z-index: 9999;
+}
+
+/* shadow effect for the start buttin */
+.text-with-glow {
+  color: #fff; /* Text color */
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff;
+  /* transition: 1s; */
+}
+
+/* Image to rotate horizontally */
+.rotate-image {
+  position: absolute; /* Position the image absolutely within the container */
+  top: 0; /* Position from the top of the container */
+  left: 50%; /* Move the image to the center horizontally */
+  transform: translateX(-50%); /* Center the image horizontally */
+  animation: rotateHorizontal 4s linear infinite; /* Apply the rotation animation */
+}
+
+/* Keyframes for horizontal rotation animation */
+@keyframes rotateHorizontal {
+  0% {
+    transform: translateX(-50%) rotateY(0deg); /* Initial position (no rotation) */
+  }
+  100% {
+    transform: translateX(-50%) rotateY(360deg); /* Final position (360 degree horizontal rotation) */
+  }
+}
+
+/* start button animation with blink */
+
+.countdowns {
+  font-family: "press Start 2p";
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.blinking-text {
+  animation: blink 1s infinite; /* Adjust the duration as needed */
+}
+
+/* SPECIALA GLITCH EFECT FOR THE BODY */
+.glitch {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0, 0, 0);
+  animation: glitchAnimation 1s ease-in-out forwards;
+}
+
+@keyframes glitchAnimation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  25% {
+    transform: scale(1.05) rotate(1deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(0.95) rotate(-1deg);
+    opacity: 0.8;
+  }
+  75% {
+    transform: scale(1.02) rotate(0.5deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* footer3 contents */
+.futs {
+  font-family: "teko";
+}
+
+/* making sure audio is not visible by default */
+.hidden {
+  display: none;
+}
+
+.bigger {
+  font-size: 1.3em;
+  position: relative;
+  bottom: 0.9em;
+}
+
+/* BACKGROUND VIDEO TRY AND ERROR */
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+/* MENU SECTION */
+.mainBodyAbout {
+  position: relative;
+  z-index: 999;
+}
+
+/* contact section of the application */
+.contactFields {
+  background-color: rgba(0, 0, 0, 0);
+  color: black;
+  /* width: 100%; */
+}
+
+#about-screen-one {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Example: Set height to 100% of viewport height */
+}
+
+.pop-details-about-artist {
+  background-color: rgba(128, 128, 128, 0.986);
+  height: 33em;
+  width: 25em;
+  position: absolute;
+  border-radius: 10px;
+}
+.pop-details-about-slatt {
+  background-color: rgba(128, 128, 128, 0.986);
+  height: 30em;
+  width: 25em;
+  position: absolute;
+  overflow-y: scroll;
+  color: white;
+  z-index: 999;
+  border-radius: 10px;
+}
+.mainPicsAbout-People {
+  /* background-image: url(./Assets/samples/buari.jpg); */
+  height: 13em;
+  background-size: cover;
+  position: relative;
+}
+
+/* .iconsMedia {
+  font-size: 17px;
+  cursor: pointer;
+  z-index: 999;
+} */
+.bios {
+  position: relative;
+  bottom: 1em;
+  /* font-size: smaller; */
+}
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #88888800; /* Color of the scrollbar thumb */
+  border-radius: 4px; /* Radius of the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #55555500; /* Color of the scrollbar thumb on hover */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f100; /* Color of the scrollbar track */
+  border-radius: 8px; /* Radius of the scrollbar track */
+}
+
+/* SHOP SECTION OF THE APPLICATION */
+.major-shop-wrap {
+  width: 100%;
+  height: 30em;
+  background-color: rgba(255, 0, 0, 0);
+  margin-top: 6em;
+  overflow-x: hidden;
+}
+
+.singleProductWrap {
+  font-family: "press Start 2P";
+}
+
+.majorFOntBrand {
+  font-family: "press Start 2P";
+}
+
+#purchaseBtn,
+#cartBtn {
+  color: white;
+  font-size: 12px;
+  padding: 4px;
+}
+
+.productOverflow {
+  overflow-x: hidden;
+}
+
+.app-container-single-rpoduct {
+  width: 100%;
+  height: 100%;
+  background-image: url("./images/frame.PNG");
+  background-size: 100% 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  display: flex;
+  /* justify-content: center; */
+  /* text-align: center; */
+}
+
+/* .single-product-wraps{
+  text-align: center;
+} */
+
+/* FORUM SECTION OF THE APPLICATION */
+
+.forum_wrap{
+  background-image: url(./images/forum_bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+/* HOME SECTION MODAL  */
+.modalMainParent {
+  background-color: rgba(0, 0, 0, 0.726);
+  height: 100%;
+  /* position: absolute; */
+  display: flex;
+  justify-content: center; /* Horizontally centers content */
+  align-items: center; /* Vertically centers content */
+  margin-top: 9em;
+}
+
+.modalBox {
+  width: 100%;
+  height: 20em;
+  background-color: white;
+}
+
+.closeModalLogin {
+  background-color: rgb(63, 62, 62);
+  color: white;
+  width: 40px; /* Adjust width as needed */
+  height: 40px; /* Adjust height as needed */
+  line-height: 40px; /* Vertical alignment */
+  border-radius: 50%; /* Make it circular */
+  cursor: pointer;
+  position: relative;
+  left: 45%;
+}
+
+.d-details {
+  position: relative;
+  z-index: 999;
+}
+
+.--slider-box {
+  position: relative;
+  margin-bottom: 3em;
+}
+
+.footOfHome {
+  margin-top: 1em;
+}
+.--input-container {
+  position: relative;
+  bottom: 2em;
+  margin-top: 1em;
+}
+
+/* menu */
+/* .homeBody{
+  z-index: 9999;
+  position: relative;
+} */
+
+/* waving text */
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  }
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.text-wave {
+  display: inline-block;
+  animation: wave 2s ease-in-out;
+  color: white;
+}
+
+.page-footer {
+  position: fixed;
+  right: 0;
+  bottom: 50px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  z-index: 1;
+}
+
+.page-footer a {
+  display: flex;
+  margin-left: 4px;
+}
+
+@media screen and (min-width: 428px) {
+  /* HOME SCREEN MEDIA QUERY */
+  /* Responsive image */
+
+  .press-start {
+    font-family: "press Start 2P";
+    font-size: 1rem;
+    z-index: 1;
+    position: relative;
+    bottom: 12px;
+  }
+}
+
+
+body{
+  overflow: hidden;
+}
