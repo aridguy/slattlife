@@ -1,7 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ShopNav from "../../Component/ShopNav";
+import { useLocation } from "react-router-dom";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const SingleProduct = () => {
+  const location = useLocation();
+
+  // State to hold the current main image
+  const [mainImage, setMainImage] = useState(
+    `https:${location.state.fields.productImages[0].fields.file.url}`
+  );
+
+  // Function to handle image change
+  const handleImageClick = (imageUrl) => {
+    setMainImage(imageUrl);
+    // Reinitialize AOS to ensure the animation works when the image changes
+    Aos.refresh(); 
+  };
+
+  useEffect(() => {
+    Aos.init({ duration: 600 });
+  }, []);
+
   return (
     <div>
       <ShopNav />
@@ -10,83 +31,84 @@ const SingleProduct = () => {
           <div className="row">
             <div className="col-md-5">
               <div className="cursor">
+                {/* Main Image */}
                 <img
-                  src="https://images.unsplash.com/photo-1719835999992-8bfde56aa5e6?q=80&w=1412&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="pics"
+                  src={mainImage}
+                  alt="Main Product"
                   width="100%"
                   className="img-thumbnail"
                   loading="lazy"
+                  data-aos="fade-right" // AOS effect on main image
                 />
               </div>
+
+              {/* Small Images */}
               <div className="d-flex gap-2 mt-2">
-                <div className="cursor border">
-                  <img
-                    src="https://images.unsplash.com/photo-1719835999992-8bfde56aa5e6?q=80&w=1412&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="pics"
-                    width="100%"
-                    className="img-thumbnail"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="cursor">
-                  <img
-                    src="https://images.unsplash.com/photo-1719835999992-8bfde56aa5e6?q=80&w=1412&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="pics"
-                    width="100%"
-                    className="img-thumbnail"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="cursor">
-                  <img
-                    src="https://images.unsplash.com/photo-1719835999992-8bfde56aa5e6?q=80&w=1412&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="pics"
-                    width="100%"
-                    className="img-thumbnail"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="cursor">
-                  <img
-                    src="https://images.unsplash.com/photo-1719835999992-8bfde56aa5e6?q=80&w=1412&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="pics"
-                    width="100%"
-                    className="img-thumbnail"
-                    loading="lazy"
-                  />
-                </div>
+                {location.state.fields.productImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className="cursor border"
+                    onClick={() =>
+                      handleImageClick(`https:${image.fields.file.url}`)
+                    }
+                  >
+                    <img
+                      src={`https:${image.fields.file.url}`}
+                      alt={`Thumbnail ${index}`}
+                      width="100%"
+                      className="img-thumbnail"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
               </div>
             </div>
+
             <div className="col-md-1"></div>
             <div className="col-md-6">
               <div>
                 <div className="mt-4">
-                  <h1 className="text-black cursor">BALENCIAGA</h1> <br />
-                  <h3>Crush embellished crinkled-leather shoulder bag</h3>{" "}
+                  <h1 className="text-black cursor">
+                    {location.state.fields.productName}
+                  </h1>{" "}
+                  <br />
+                  <h3>{location.state.fields.productShortDescription}</h3>{" "}
                   <hr />
                   <p>
                     <span>Price</span>
-                    <h4 className="text-black">£2,550</h4>
-                  </p>
-                  <p>
                     <b className="text-black">
-                      Available Sizes: MD, SM, XL, XXL, VL
+                      {" "}
+                      {location.state.fields.productPrice}
                     </b>
                   </p>
                   <p>
-                    <small>Ratings: 4.5</small>{" "}
-                    <small className="bi bi-star text-warning"></small>
-                    <small className="bi bi-star text-warning"></small>
-                    <small className="bi bi-star text-warning"></small>
-                    <small className="bi bi-star text-warning"></small>
+                    <b className="text-black">
+                      Product Sizes: {location.state.fields.productSizes}
+                    </b>
+                  </p>
+                  <p>
+                    <small>
+                      Ratings: {/*location.state.fields.productRatings*/}
+                    </small>{" "}
+                    {Array.from(
+                      { length: location.state.fields.productRatings },
+                      (_, index) => (
+                        <small
+                          key={index}
+                          className="bi bi-star-fill text-warning"
+                        ></small>
+                      )
+                    )}
                   </p>
                 </div>
               </div>
               <div className="mt-5">
-                <p>Mode of Deliver: Doorstep Deliver</p>
+                <p>
+                  Mode of Deliver: {location.state.fields.productDeliveryOption}
+                </p>
               </div>
               <div className="">
-                <p>Tipically shipped 5-6 days after order</p>
+                <p>{location.state.fields.productDeliveryPeriod}</p>
               </div>
               <div className="mt-5">
                 <div>
@@ -95,7 +117,7 @@ const SingleProduct = () => {
                   </button>
                 </div>
                 <div>
-                  <button className=" buy_btn love_btn">
+                  <button disabled className=" buy_btn love_btn">
                     I love this item{" "}
                     <span className="bi bi-heart text-black text-black"></span>
                   </button>
@@ -104,27 +126,15 @@ const SingleProduct = () => {
               <div className="mt-5">
                 <details>
                   <summary>Sellers Note</summary>
-                  <p>
-                    Epcot is a theme park at Walt Disney World Resort featuring
-                    exciting attractions, international pavilions, award-winning
-                    fireworks and seasonal special events.
-                  </p>
+                  <p>{location.state.fields.sellersNote}</p>
                 </details>
                 <details className="mt-3">
                   <summary>Details & Care</summary>
-                  <p>
-                    Epcot is a theme park at Walt Disney World Resort featuring
-                    exciting attractions, international pavilions, award-winning
-                    fireworks and seasonal special events.
-                  </p>
+                  <p>{location.state.fields.detailsAndCare}</p>
                 </details>
                 <details className="mt-3">
                   <summary>Delivery & Return Policies</summary>
-                  <p>
-                    Epcot is a theme park at Walt Disney World Resort featuring
-                    exciting attractions, international pavilions, award-winning
-                    fireworks and seasonal special events.
-                  </p>
+                  <p>{location.state.fields.deliverReturnPolicy}</p>
                 </details>
               </div>
 

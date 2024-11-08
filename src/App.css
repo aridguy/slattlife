@@ -26,8 +26,10 @@ html {
   /* Reset default margin and padding */
   margin: 0;
   padding: 0;
+  overflow: auto; /* Ensure the body and html can scroll */
   /* height: 100%; */
 }
+
 
 .glitch {
   display: flex;
@@ -99,9 +101,6 @@ html {
   }
   
 }
-
-
-
 
 /* Responsive image */
 img.landing-image {
@@ -422,7 +421,7 @@ input:focus {
   height: 30em;
   background-color: rgba(255, 0, 0, 0);
   margin-top: 6em;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 .singleProductWrap {
@@ -591,3 +590,4 @@ input:focus {
 body{
   overflow: hidden;
 }
+
