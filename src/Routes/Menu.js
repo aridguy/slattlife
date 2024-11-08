@@ -13,10 +13,12 @@ import Logo from "../images/brand-name-white.png";
 import Swal from "sweetalert2";
 import Login from "./LoginForm/Login";
 import AOS from "aos";
+import {useNavigate } from "react-router-dom";
 
 // import "./Menu.css"; // Assuming you have a separate CSS file for styling
 
 const Menu = () => {
+  const Navigate = useNavigate("/")
   // INITIATE AOS ON COMPONENT
   useEffect(() => {
     AOS.init();
@@ -61,7 +63,9 @@ const Menu = () => {
         </section>
         <div className="container mt-5">
           <div className="container">
-          <div className="image-grid container">
+          <div onClick={() => {
+            Navigate("/shop")
+          }} className="image-grid container">
             {images.map((src, index) => (
               <img onClick={handleComeLater} key={index} src={src} alt={`Placeholder ${index + 1}`} className="menu" />
             ))}
