@@ -21,7 +21,7 @@ const Shop = () => {
       }
     };
     getAllEntries();
-  }, []);
+  }, [client]);
 
   const doButtonWish = () => {
     console.log("location.href='https://snapchat.com/t/oBmBMCyH'");
