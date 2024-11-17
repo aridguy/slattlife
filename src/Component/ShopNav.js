@@ -43,6 +43,7 @@ const ShopNav = () => {
                   <li className="cursor">Home</li>
                   <li className="cursor">About</li>
                   <li className="cursor">Contact</li>
+                 
                 </ul>
               </div>
             </div>
