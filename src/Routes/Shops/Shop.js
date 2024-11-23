@@ -26,7 +26,7 @@ const Shop = () => {
       }
     };
     getAllEntries();
-  }, [client]);
+  }, []);
 
   // Load cart items from localStorage only on component mount
   useEffect(() => {

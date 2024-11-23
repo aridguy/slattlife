@@ -65,6 +65,8 @@ html {
   padding: 0 20px;
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0);
+  position: relative;
+  top: 3em;
  
 }
 
@@ -99,19 +101,23 @@ html {
     width: 100%;
     height: auto;
   }
+  .press-start {
+    font-family: "press Start 2P";
+    font-size: 2rem;
+    z-index: 1;
+    position: relative;
+    /* bottom: 12px; */
+  }
+  
   
 }
 
 /* Responsive image */
-img.landing-image {
-  width: 75%;
-  height: auto;
-  margin-top: 3em;
-}
+
 
 .press-start {
   font-family: "press Start 2P";
-  font-size: 3rem;
+  font-size: 2rem;
   z-index: 1;
   position: relative;
   /* bottom: 12px; */
@@ -235,9 +241,9 @@ input:focus {
   background-color: transparent;
 }
 
-.sendBtn {
+/* .sendBtn {
   z-index: 9999;
-}
+} */
 
 /* shadow effect for the start buttin */
 .text-with-glow {
@@ -320,6 +326,9 @@ input:focus {
 /* footer3 contents */
 .futs {
   font-family: "teko";
+}
+.futs1 {
+  font-family: "press Start 2P";
 }
 
 /* making sure audio is not visible by default */

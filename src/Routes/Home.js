@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import "../App.css";
 import Logo from "../images/brand-name-white.png";
+import Logo1 from "../images/slatt-icon.png";
 
 // import Marquee from "react-fast-marquee";
 // import Sounds from "../sounds.mp3";
@@ -125,46 +126,54 @@ function App() {
   return (
     <div className="glitch">
       <div className="app-container">
-      <div className="--secondlevel-parent container">
-      <div>
-        <img className="landing-image" src={Logo} alt="Brand-Name" />
-      </div>
-      <div className="press-start cursor text-white mt-5">
-        <span onClick={OpenMenus} className="starte text-with-glow">BOARD IN</span>
-      </div>
-      <div className="--input-container">
-        <div className="text-center footOfHome">
-          <div className="text-white mt-2">
-            <a href="https://youtube.com/@slattlife01?si=U5M16G2ih9CKTIus">
-              <i className="fab fa-youtube cursor"></i>
-            </a>
-            &nbsp;&nbsp;&nbsp;
-            <a href="https://www.instagram.com/slattlife.c0m?igsh=cTBvZHlhd2lyMTZn&utm_source=qr">
-              <i className="fab fa-instagram cursor"></i>
-            </a>
-            &nbsp;&nbsp;&nbsp;
-            <a href="https://www.tiktok.com/@slattlife.com?is_from_webapp=1&sender_device=pc">
-              <i className="fab fa-tiktok cursor"></i>
-            </a>
-          </div>
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12">
-                <div className="audio-container">
-                  <audio autoPlay loop={true}>
-                    <source src="/sound.mp3" type="audio/mp3" />
-                  </audio>
-                </div>
-                <address className="text-white relative copyrights bottom-40 futs text-center">
-                  &copy; SLATTLIFE 2024
-                </address>
-              </div>
+        <div className="--secondlevel-parent container">
+          <div>
+            <div>
+              <img width={100} className="" src={Logo1} alt="Brand-Name" />{" "}
+              <br />
+              <img width={200} className="" src={Logo} alt="Brand-Name" />
+            </div>
+            <div className="press-start cursor text-white mt-5">
+              <span onClick={OpenMenus} className="starte text-with-glow">
+                BOARD IN
+              </span>
+            </div>
+            <div>scrolling message</div>
+            <div className="mt-4">
+              <input
+                placeholder="subscribe to get updates"
+                style={{ color: "white" }}
+                className="inputs"
+              />{" "}
+              <br />
+              <button style={{ width: "10em" }} className="btn btn-secondary">
+                Send
+              </button>
+            </div>
+            <div className="text-white text-center mt-3">
+              <a href="https://youtube.com/@slattlife01?si=U5M16G2ih9CKTIus">
+                <i className="fab fa-youtube cursor"></i>
+              </a>
+              &nbsp;&nbsp;&nbsp;
+              <a href="https://www.instagram.com/insta.slattlife?igsh=aTVub2g2YTRnZGM5">
+                <i className="fab fa-instagram"></i>
+              </a>
+              &nbsp;&nbsp;&nbsp;
+              <a href="https://snapchat.com/t/oBmBMCyH">
+                <i className="fab fa-snapchat"></i>
+              </a>
+              <address className="text-white relative  futs text-center">
+                &copy; SLATTLIFE 2024
+              </address>
+            </div>
+            <div className="sounds">
+              <i className="fas fa-volume-high text-white cursor"></i>
+            </div>
+            <div className="sounds">
+              <span style={{letterSpacing: "2px"}} className="cursor text-white futs">Terms & Conditions / Privacy Policy</span>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    
       </div>
     </div>
   );
