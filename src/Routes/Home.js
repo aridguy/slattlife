@@ -1,9 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../App.css";
 import Logo from "../images/brand-name-white.png";
 import Logo1 from "../images/slatt-icon.png";
+import Vids from "../Assets/animated-home.mp4";
+import { createClient } from "contentful";
 
-// import Marquee from "react-fast-marquee";
+import Marquee from "react-fast-marquee";
 // import Sounds from "../sounds.mp3";
 import "../AnimBg.css";
 import AOS from "aos";
@@ -13,6 +15,17 @@ import { useNavigate } from "react-router-dom";
 
 function App() {
   const navigate = useNavigate();
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+
+    if (video) {
+      video.play(); // Play the video
+      video.loop = true; // Enable looping
+      video.muted = true; // Mute the video for autoplay policies
+    }
+  }, []);
 
   useEffect(() => {
     AOS.init();
@@ -121,7 +134,27 @@ function App() {
   //   }
   // };
 
+  // TO UPDATE THE SCROLLING TEXT
   const OpenMenus = () => navigate("/menu");
+  const [scrollingText, setScrollingText] = useState([]);
+  const client = createClient({
+    space: "q2ho18w4i1sf",
+    accessToken: "fxp-pdOyuEnp2mYpY3ujUC0GfbaV4q3hyELwukdZD90",
+  });
+  useEffect(() => {
+    const getAllEntries = async () => {
+      try {
+        const entries = await client.getEntries({
+          content_type: "scrollingMessage",
+        });
+        console.log(entries);
+        setScrollingText(entries.items);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getAllEntries();
+  }, []);
 
   return (
     <div className="glitch">
@@ -138,7 +171,21 @@ function App() {
                 BOARD IN
               </span>
             </div>
-            <div>scrolling message</div>
+            <div>
+              <video ref={videoRef} width="220" height="140">
+                <source src={Vids} type="video/mp4" />
+              </video>
+            </div>
+            <div>
+              <Marquee
+                style={{ letterSpacing: "3px" }}
+                className="text-white futs"
+              >
+                {scrollingText.map((item, index) => (
+                  <span key={index}>{item.fields.scrollingtext} </span> // Assuming 'message' is the field you want to display
+                ))}
+              </Marquee>
+            </div>
             <div className="mt-4">
               <input
                 placeholder="subscribe to get updates"
@@ -170,7 +217,12 @@ function App() {
               <i className="fas fa-volume-high text-white cursor"></i>
             </div>
             <div className="sounds">
-              <span style={{letterSpacing: "2px"}} className="cursor text-white futs">Terms & Conditions / Privacy Policy</span>
+              <span
+                style={{ letterSpacing: "2px" }}
+                className="cursor text-white futs"
+              >
+                Terms & Conditions / Privacy Policy
+              </span>
             </div>
           </div>
         </div>
