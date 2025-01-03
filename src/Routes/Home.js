@@ -132,7 +132,7 @@ function App() {
       }
     };
     getAllEntries();
-  }, []);
+  }, [client]);
 
   return (
     <div className="glitch">

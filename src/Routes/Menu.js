@@ -15,9 +15,10 @@ import Forums from "../Assets/menu/forums.png";
 import ChatChill from "../Assets/menu/chat&chill.PNG";
 import Community from "../Assets/menu/communities.png";
 import Media from "../Assets/menu/media.gif";
+import { useNavigate } from "react-router-dom";
 
 const Menu = () => {
-  // const Navigate = useNavigate("/");
+  const Navigate = useNavigate("/");
   // INITIATE AOS ON COMPONENT
   useEffect(() => {
     AOS.init();
@@ -38,7 +39,7 @@ const Menu = () => {
               <div className="col-md-2"></div>
               <div className="col-md-8">
                 <div
-                className="fixers"
+                  className="fixers"
                   style={{
                     width: "100%",
                     height: "29em",
@@ -68,46 +69,65 @@ const Menu = () => {
                         <div className="col-6 col-md-3 ">
                           <div>
                             <img
+                              onClick={() => Navigate("/about")}
                               src={About}
                               width={70}
                               alt="Icon 1"
-                              className="icon-img img-fluid"
+                              className="icon-img img-fluid cursor"
                             />
                             <br />
-                            <span className="menuTexts">About</span>
+                            <span
+                              onClick={() => Navigate("/about")}
+                              className="menuTexts cursor"
+                            >
+                              About
+                            </span>
                           </div>
                         </div>
                         <div className="col-6 col-md-3">
                           <div>
                             <img
+                              onClick={() => Navigate("/contact")}
                               src={Contact}
                               width={70}
                               alt="Icon 2"
                               className="icon-img img-fluid"
                             />
                             <br />
-                            <span className="menuTexts">Contact</span>
+                            <span
+                              onClick={() => Navigate("/contact")}
+                              className="menuTexts"
+                            >
+                              Contact
+                            </span>
                           </div>
                         </div>
                         <div className="col-6 col-md-3">
                           <div>
                             <img
+                              onClick={() => Navigate("/shop")}
                               src={Shop}
                               width={70}
                               alt="Icon 3"
-                              className="icon-img img-fluid"
+                              className="icon-img img-fluid cursor"
                             />
                             <br />
-                            <span className="menuTexts">Shop</span>
+                            <span
+                              onClick={() => Navigate("/shop")}
+                              className="menuTexts cursor"
+                            >
+                              Shop
+                            </span>
                           </div>
                         </div>
                         <div className="col-6 col-md-3">
                           <div>
                             <img
+                              onClick={() => Navigate("/media")}
                               src={Media}
                               width={250}
                               alt="Icon 4"
-                              className="icon-img img-fluid"
+                              className="icon-img img-fluid cursor"
                               style={{
                                 position: "absolute",
                                 bottom: "21em",
@@ -122,43 +142,62 @@ const Menu = () => {
                       <div className="row text-center text-uppercase">
                         <div className="col-6 col-md-3">
                           <img
+                            onClick={() => Navigate("/forums")}
                             src={Forums}
                             width={70}
                             alt="Icon 5"
                             className="icon-img img-fluid"
                           />
                           <br />
-                          <span className="menuTexts">Forums</span>
+                          <span
+                            onClick={() => Navigate("/forums")}
+                            className="menuTexts cursor"
+                          >
+                            Forums
+                          </span>
                         </div>
                         <div className="col-6 col-md-3">
                           <img
+                            onClick={() => alert("coming soon!")}
                             src={ChatChill}
                             width={70}
                             alt="Icon 6"
-                            className="icon-img img-fluid"
+                            className="icon-img img-fluid cursor"
                           />
                           <br />
-                          <span className="menuTexts">Chat & Chill</span>
+                          <span className="menuTexts cursor">Chat & Chill</span>
                         </div>
                         <div className="col-6 col-md-3">
                           <img
+                            onClick={() => Navigate("/community")}
                             src={Community}
                             width={70}
                             alt="Icon 7"
-                            className="icon-img img-fluid"
+                            className="icon-img img-fluid cursor"
                           />
                           <br />
-                          <span className="menuTexts">Community</span>
+                          <span
+                            onClick={() => Navigate("/community")}
+                            className="menuTexts cursor"
+                          >
+                            Community
+                          </span>
                         </div>
                         <div className="col-6 col-md-3">
                           <img
+                            onClick={() => Navigate("/advert")}
                             src={Advert}
                             width={70}
                             alt="Icon 4"
-                            className="icon-img img-fluid"
+                            className="icon-img img-fluid cursor"
                           />
                           <br />
-                          <span className="menuTexts">Advert</span>
+                          <span
+                            onClick={() => Navigate("/advert")}
+                            className="menuTexts cursor"
+                          >
+                            Advert
+                          </span>
                         </div>
                       </div>
                     </div>

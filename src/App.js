@@ -11,6 +11,7 @@ import Forums from "./Routes/Forum/Forums";
 import Terms from "./Routes/Terms";
 import Community from "./Routes/Community";
 import Media from "./Routes/Media/Media";
+import Advert from "./Routes/Advert";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="terms" element={<Terms />} />
           <Route path="shop" element={<Shop />} />
           <Route path="community" element={<Community />} />
+          <Route path="advert" element={<Advert />} />
           <Route path="singleproduct/:id" element={<SingleProduct />} />
 
           <Route path="*" element={<NoPage />} />
