@@ -39,7 +39,7 @@ const Media = () => {
       }
     };
     getAllEntries();
-  }, []);
+  }, [client]);
 
   // CALLING DATA FOR ANOTHER MODEL
   const newClient = createClient({
@@ -64,7 +64,7 @@ const Media = () => {
       }
     };
     getAllEntries();
-  }, []);
+  });
 
   // CONVERTS YOUTUBE URL TO THE PROPER SHAREABLE LINK
 
