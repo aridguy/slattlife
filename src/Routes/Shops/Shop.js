@@ -163,7 +163,7 @@ const Shop = () => {
                         })
                       }
                       src={`https:${product.fields.productImages[0].fields.file.url}`}
-                      className="card-img-top"
+                      className="card-img-top "
                       alt={
                         product.fields.productImages[0].fields.description ||
                         "default image"

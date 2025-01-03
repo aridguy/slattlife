@@ -43,7 +43,7 @@ const Menu = () => {
                   style={{
                     width: "100%",
                     height: "29em",
-                    backgroundColor: "grey",
+                    backgroundColor: "black",
                     borderRadius: "5px",
                     position: "relative",
                     paddingTop: "5em",
@@ -57,9 +57,10 @@ const Menu = () => {
                       position: "absolute",
                       top: "0px",
                       padding: "1em",
+                      borderRadius: "7px"
                     }}
                   >
-                    <span className="text-white text-uppercase brandFont">
+                    <span className="text-white text-uppercase brandFont cursor">
                       Slattlife
                     </span>
                   </div>
@@ -73,12 +74,12 @@ const Menu = () => {
                               src={About}
                               width={70}
                               alt="Icon 1"
-                              className="icon-img img-fluid cursor"
+                              className="icon-img img-fluid cursor levitating-image"
                             />
                             <br />
                             <span
                               onClick={() => Navigate("/about")}
-                              className="menuTexts cursor"
+                              className="menuTexts cursor text-white"
                             >
                               About
                             </span>
@@ -91,12 +92,12 @@ const Menu = () => {
                               src={Contact}
                               width={70}
                               alt="Icon 2"
-                              className="icon-img img-fluid"
+                              className="icon-img img-fluid levitating-image"
                             />
                             <br />
                             <span
                               onClick={() => Navigate("/contact")}
-                              className="menuTexts"
+                              className="menuTexts text-white "
                             >
                               Contact
                             </span>
@@ -109,12 +110,12 @@ const Menu = () => {
                               src={Shop}
                               width={70}
                               alt="Icon 3"
-                              className="icon-img img-fluid cursor"
+                              className="icon-img img-fluid cursor levitating-image"
                             />
                             <br />
                             <span
                               onClick={() => Navigate("/shop")}
-                              className="menuTexts cursor"
+                              className="menuTexts cursor text-white"
                             >
                               Shop
                             </span>
@@ -146,12 +147,12 @@ const Menu = () => {
                             src={Forums}
                             width={70}
                             alt="Icon 5"
-                            className="icon-img img-fluid"
+                            className="icon-img img-fluid levitating-image"
                           />
                           <br />
                           <span
                             onClick={() => Navigate("/forums")}
-                            className="menuTexts cursor"
+                            className="menuTexts cursor text-white"
                           >
                             Forums
                           </span>
@@ -162,10 +163,10 @@ const Menu = () => {
                             src={ChatChill}
                             width={70}
                             alt="Icon 6"
-                            className="icon-img img-fluid cursor"
+                            className="icon-img img-fluid cursor levitating-image"
                           />
                           <br />
-                          <span className="menuTexts cursor">Chat & Chill</span>
+                          <span className="menuTexts cursor text-white">Chat & Chill</span>
                         </div>
                         <div className="col-6 col-md-3">
                           <img
@@ -173,12 +174,12 @@ const Menu = () => {
                             src={Community}
                             width={70}
                             alt="Icon 7"
-                            className="icon-img img-fluid cursor"
+                            className="icon-img img-fluid cursor levitating-image"
                           />
                           <br />
                           <span
                             onClick={() => Navigate("/community")}
-                            className="menuTexts cursor"
+                            className="menuTexts cursor text-white"
                           >
                             Community
                           </span>
@@ -189,12 +190,12 @@ const Menu = () => {
                             src={Advert}
                             width={70}
                             alt="Icon 4"
-                            className="icon-img img-fluid cursor"
+                            className="icon-img img-fluid cursor levitating-image"
                           />
                           <br />
                           <span
                             onClick={() => Navigate("/advert")}
-                            className="menuTexts cursor"
+                            className="menuTexts cursor text-white "
                           >
                             Advert
                           </span>

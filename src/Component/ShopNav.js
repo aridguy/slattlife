@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import Logo1 from "../images/slatt-icon.png";
+
 const ShopNav = () => {
   const [index, setIndex] = useState(0);
   const messages = [
@@ -30,8 +32,8 @@ const ShopNav = () => {
             <div className="col text-center">
               <div className="logo-section">
                 <img
-                  src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-                  height="30"
+                  src={Logo1}
+                  height="50"
                   alt="MDB Logo"
                   loading="lazy"
                 />
