@@ -625,10 +625,28 @@ body {
 }
 
 @keyframes levitate {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0); /* Original position */
   }
   50% {
     transform: translateY(-8px); /* Float up */
   }
 }
+
+.responsive-icon {
+  width: 250px; /* Default size for larger screens */
+  position: absolute;
+  bottom: 21em;
+  left: 32em;
+}
+
+@media screen and (max-width: 768px) {
+  .responsive-icon {
+    width: 100px; /* Adjusted size for mobile */
+    position: static; /* Avoid absolute positioning on smaller screens */
+    margin: 0 auto; /* Center if needed */
+    display: block; /* Ensure proper display */
+  }
+}
+

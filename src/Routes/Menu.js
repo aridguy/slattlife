@@ -13,7 +13,7 @@ import Shop from "../Assets/menu/shop.png";
 import Advert from "../Assets/menu/advert.png";
 import Forums from "../Assets/menu/forums.png";
 import ChatChill from "../Assets/menu/chat&chill.PNG";
-import Community from "../Assets/menu/communities.png";
+import Community from "../Assets/menu/communityy.gif";
 import Media from "../Assets/menu/media.gif";
 import { useNavigate } from "react-router-dom";
 
@@ -57,7 +57,7 @@ const Menu = () => {
                       position: "absolute",
                       top: "0px",
                       padding: "1em",
-                      borderRadius: "7px"
+                      borderRadius: "7px",
                     }}
                   >
                     <span className="text-white text-uppercase brandFont cursor">
@@ -126,21 +126,15 @@ const Menu = () => {
                             <img
                               onClick={() => Navigate("/media")}
                               src={Media}
-                              width={250}
                               alt="Icon 4"
-                              className="icon-img img-fluid cursor"
-                              style={{
-                                position: "absolute",
-                                bottom: "21em",
-                                left: "32em",
-                              }}
+                              className="icon-img img-fluid cursor responsive-icon levitating-image"
                             />
                             <br />
                             <span className="menuTexts"></span>
                           </div>
                         </div>
                       </div>
-                      <div className="row text-center text-uppercase">
+                      <div className="row text-center text-uppercase mt-3">
                         <div className="col-6 col-md-3">
                           <img
                             onClick={() => Navigate("/forums")}
@@ -166,13 +160,15 @@ const Menu = () => {
                             className="icon-img img-fluid cursor levitating-image"
                           />
                           <br />
-                          <span className="menuTexts cursor text-white">Chat & Chill</span>
+                          <span className="menuTexts cursor text-white">
+                            Chat & Chill
+                          </span>
                         </div>
                         <div className="col-6 col-md-3">
                           <img
                             onClick={() => Navigate("/community")}
                             src={Community}
-                            width={70}
+                            width={124}
                             alt="Icon 7"
                             className="icon-img img-fluid cursor levitating-image"
                           />
