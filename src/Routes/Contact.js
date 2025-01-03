@@ -1,151 +1,134 @@
-import React, { useEffect } from "react";
-import { useForm, ValidationError } from "@formspree/react";
-import Swal from "sweetalert2";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser"; // Ensure this package is installed
+import Swal from "sweetalert2"; // SweetAlert2 for success message
 
 const Contact = () => {
-  const [state, handleSubmit, reset] = useForm("myyrvrjp");
+  const form = useRef();
 
-  useEffect(() => {
-    if (state.succeeded) {
-      Swal.fire({
-        title: "Good job Slatt!",
-        text: "Thanks for reaching out",
-        icon: "success"
-      }).then(() => {
-        reset();
-      });
-    }
-  }, [state.succeeded, reset]);
+  const sendEmail = (e) => {
+    e.preventDefault(); // Prevent page reload on form submission
+
+    emailjs
+      .sendForm(
+        "service_pq38hfj", // Replace with your EmailJS Service ID
+        "template_0pirnuw", // Replace with your EmailJS Template ID
+        form.current,
+        "rFsHqt2ep9GFL13MM" // Replace with your EmailJS Public Key
+      )
+      .then(
+        (result) => {
+          console.log("Email sent successfully:", result.text);
+          Swal.fire({
+            title: "Message Sent!",
+            text: "Thank you for reaching out to us.",
+            icon: "success",
+          }).then(() => {
+            form.current.reset(); // Reset the form after successful submission
+          });
+        },
+        (error) => {
+          console.error("Error sending email:", error.text);
+          Swal.fire({
+            title: "Error!",
+            text: "Failed to send your message. Please try again later.",
+            icon: "error",
+          });
+        }
+      );
+  };
+
+  const formStyles = {
+    backgroundColor: "black",
+    color: "white",
+    borderColor: "white",
+    // width: "100%"
+  };
 
   return (
-    <div>
-      <div className="container my-5">
-        <div className="row justify-content-center">
-          <div className="col-md-6">
-            <h1 className="mb-3">Contact Us</h1>
-            <form onSubmit={handleSubmit}>
-              <div className="row g-3">
-                <div className="col-md-6">
-                  <label
-                    htmlFor="your-name"
-                    className="form-label "
-                  >
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="your-name"
-                    name="your-name"
-                    required
-                  />
-                  <ValidationError 
-                    prefix="Name" 
-                    field="your-name"
-                    errors={state.errors}
-                  />
-                </div>
-                <div className="col-md-6">
-                  <label
-                    htmlFor="your-surname"
-                    className="form-label "
-                  >
-                    Your Surname
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="your-surname"
-                    name="your-surname"
-                    required
-                  />
-                  <ValidationError 
-                    prefix="Surname" 
-                    field="your-surname"
-                    errors={state.errors}
-                  />
-                </div>
-                <div className="col-md-6">
-                  <label htmlFor="your-email" className="form-label ">
-                    Your Email
-                  </label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    id="your-email"
-                    name="your-email"
-                    required
-                  />
-                  <ValidationError 
-                    prefix="Email" 
-                    field="your-email"
-                    errors={state.errors}
-                  />
-                </div>
-                <div className="col-md-6">
-                  <label
-                    htmlFor="your-subject"
-                    className="form-label"
-                  >
-                    Your Subject
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="your-subject"
-                    name="your-subject"
-                  />
-                  <ValidationError
-                    prefix="Subject"
-                    field="your-subject"
-                    errors={state.errors}
-                  />
-                </div>
-                <div className="col-12">
-                  <label
-                    htmlFor="your-message"
-                    className="form-label"
-                  >
-                    Your Message
-                  </label>
-                  <textarea
-                    className="form-control"
-                    id="your-message"
-                    name="your-message"
-                    rows="5"
-                    required
-                  ></textarea>
-                  <ValidationError
-                    prefix="Message"
-                    field="your-message"
-                    errors={state.errors}
-                  />
-                </div>
-                <div className="col-12">
-                  <div className="row">
-                    <div className="col-md-6">
-                      <button
-                        type="submit"
-                        disabled={state.submitting}
-                        className="btn btn-dark w-100 fw-bold"
-                      >
-                        Send
-                      </button>
-                    </div>
+    <div className="app-container">
+      <div className="--secondlevel-parent">
+        <div className="container my-5">
+          <div className="row justify-content-center">
+            <div className="col-md-4"></div>
+            <div className="col-md-4">
+              <h1 className="mb-3 text-white">Contact Us</h1>
+              <form ref={form} onSubmit={sendEmail}>
+                <div className="row">
+                  <div className="mt-3">
+                   
+                    <input
+                    placeholder="name / nickname"
+                      style={formStyles}
+                      type="text"
+                      className="inputs"
+                      id="your-name"
+                      name="your_name" // Match EmailJS variable
+                      required
+                    />
+                  </div>
+                  <div className="mt-3">
+                    
+                    <input
+                    placeholder="email"
+                      style={formStyles}
+                      type="email"
+                      className="inputs "
+                      id="your-email"
+                      name="your_email" // Match EmailJS variable
+                      required
+                    />
+                  </div>
+
+                  <div className="mt-3">
+                    
+                    <textarea
+                    placeholder="some messages"
+                    style={{height: "12em"}}
+                      className="inputs text-white"
+                      id="your-message"
+                      name="message" // Match EmailJS variable
+                      rows="5"
+                      required
+                    ></textarea>
+                  </div>
+                  <div className="mt-4">
+                    <button
+                      type="submit"
+                      className="text-white btn btn-dark w-100 btn-outline-secondary inputs"
+                      data-mdb-ripple-init
+                      data-mdb-ripple-color="dark"
+                    >
+                      Send
+                    </button>
                   </div>
                 </div>
-              </div>
-            </form>
+              </form>
+            </div>
+            <div className="col-md-4"></div>
           </div>
+        </div>
+        <div className="d-flex gap-5">
+          <a style={{ color: "#3b5998" }} href="#!" role="button">
+            <i class="fab fa-facebook-f fa-lg"></i>
+          </a>
+          <a style={{ color: "#55acee" }} href="#!" role="button">
+            <i class="fab fa-twitter fa-lg"></i>
+          </a>
+          <a style={{ color: "#dd4b39" }} href="#!" role="button">
+            <i class="fab fa-google fa-lg"></i>
+          </a>
+          <a style={{ color: "#ac2bac" }} href="#!" role="button">
+            <i class="fab fa-instagram fa-lg"></i>
+          </a>
         </div>
       </div>
 
-      <footer className="page-footer">
-        <span className="text-white">&copy </span>
+      {/*<footer className="page-footer">
+        <span>&copy; 2024 Slattlife</span>
         <a href="https://slattlife.com/" target="_blank" rel="noreferrer">
-          
+          Visit our website
         </a>
-      </footer>
+      </footer>*/}
     </div>
   );
 };

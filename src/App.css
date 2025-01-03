@@ -5,21 +5,19 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
 
 /* Apply the custom cursor */
-.btn-whatsapp{
+.btn-whatsapp {
   background-color: #1e7bc8;
   color: white;
 }
 
-.btn-whatsapp:hover{
+.btn-whatsapp:hover {
   background-color: #0f4f83;
-  color: white
-
+  color: white;
 }
 
-.full_border{
+.full_border {
   border: 1px solid grey;
 }
-
 
 body,
 html {
@@ -29,7 +27,6 @@ html {
   overflow: auto; /* Ensure the body and html can scroll */
   /* height: 100%; */
 }
-
 
 .glitch {
   display: flex;
@@ -61,30 +58,24 @@ html {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 80vh; 
+  height: 80vh;
   padding: 0 20px;
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0);
   position: relative;
   top: 3em;
- 
 }
-
-
 
 /* ImageGrid.css */
 .image-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
-
-
 }
 
 .image-grid img {
   width: 50%;
   height: auto;
-  
 }
 
 @media (max-width: 768px) {
@@ -108,12 +99,9 @@ html {
     position: relative;
     /* bottom: 12px; */
   }
-  
-  
 }
 
 /* Responsive image */
-
 
 .press-start {
   font-family: "press Start 2P";
@@ -131,9 +119,8 @@ html {
   margin-top: 20px;
 }
 
-
 /* COMUNITY CSS ONLY */
-.call-to-action{
+.call-to-action {
   background-image: url(../src/Assets/call-to-action.jpg);
   height: 20em;
   background-size: cover;
@@ -151,7 +138,6 @@ html {
   border-bottom-left-radius: 20px;
 }
 
-
 /* MENU SECTION OF APPLIUCATION */
 .app-containerMenu {
   width: 100%;
@@ -166,16 +152,16 @@ html {
   background-color: rgb(0, 0, 0);
 }
 
-.page-parent{
+.page-parent {
   list-style: none;
 }
 
-.buy_btn{
+.buy_btn {
   width: 100%;
   height: 3em;
   border-radius: 5px;
 }
-.love_btn{
+.love_btn {
   width: 100%;
   height: 3em;
   background-color: rgba(255, 255, 255, 0);
@@ -186,7 +172,6 @@ html {
   transition: opacity 1s ease-in-out;
 }
 
-
 .cursor {
   cursor: pointer;
 }
@@ -194,7 +179,7 @@ html {
   z-index: 9999;
 }
 .inputs {
-  border: 2.1px solid rgb(255, 255, 255);
+  border: 1.1px solid rgb(255, 255, 255);
   outline: none;
   width: 27em !important;
   margin-top: -0.9em;
@@ -231,6 +216,44 @@ button {
   z-index: 200; /* Make sure buttons are also in front */
   position: relative; /* Ensure the z-index works by setting position to relative */
 }
+
+.brandFont {
+  font-family: "Press Start 2P";
+}
+.menuTexts {
+  font-family: "Press Start 2P";
+  font-size: 10px;
+  cursor: pointer;
+}
+/* Media query for laptop screens and higher */
+@media screen and (min-width: 1440px) {
+  /* Styles for laptop and larger screens */
+
+  .menuPeople {
+    position: relative;
+    top: 43m;
+  }
+}
+
+/* .fixers {
+  width: "100%";
+  height: "28em";
+  background-color: "grey";
+  border-radius: "5px";
+  position: "relative";
+  padding-top: "5em";
+} */
+@media (max-width: 768px) {
+  .fixers {
+    width: 100%;
+    height: 32em;
+    background-color: grey;
+    border-radius: 5px;
+    position: relative;
+    padding-top: 5em;
+  }
+}
+
 .maquee {
   font-family: "Press Start 2P";
   font-size: 10px;
@@ -472,12 +495,11 @@ input:focus {
 
 /* FORUM SECTION OF THE APPLICATION */
 
-.forum_wrap{
+.forum_wrap {
   background-image: url(./images/forum_bg.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
-
 
 /* HOME SECTION MODAL  */
 .modalMainParent {
@@ -595,8 +617,6 @@ input:focus {
   }
 }
 
-
-body{
+body {
   overflow: hidden;
 }
-

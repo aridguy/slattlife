@@ -16,6 +16,11 @@ import { useNavigate } from "react-router-dom";
 function App() {
   const navigate = useNavigate();
   const videoRef = useRef(null);
+  const handlePlay = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+    }
+  };
 
   useEffect(() => {
     const video = videoRef.current;
@@ -29,9 +34,12 @@ function App() {
 
   useEffect(() => {
     AOS.init();
+    // handlePlay()
   }, []);
 
-  // useEffect(() => {
+  handlePlay()
+
+
   //   const showAlert = async () => {
   //     const { value: accept } = await Swal.fire({
   //       title: "Terms and conditions",
@@ -54,37 +62,7 @@ function App() {
   //   showAlert();
   // }, []);
 
-  const inputRef = useRef(null);
-  useEffect(() => {
-    const placeholderTexts = ["Signup for our newsletter"];
-    let currentIndex = 0;
-    let currentText = "";
-    let currentTextIndex = 0;
-    let typingInterval;
-
-    const typePlaceholder = () => {
-      if (currentTextIndex < placeholderTexts[currentIndex].length) {
-        currentText += placeholderTexts[currentIndex][currentTextIndex++];
-        if (inputRef.current) {
-          inputRef.current.placeholder = currentText;
-        }
-      } else {
-        clearInterval(typingInterval);
-        currentText = "";
-        currentTextIndex = 0;
-        currentIndex = (currentIndex + 1) % placeholderTexts.length;
-        setTimeout(() => {
-          typingInterval = setInterval(typePlaceholder, 100);
-        }, 1500);
-      }
-    };
-
-    typingInterval = setInterval(typePlaceholder, 100);
-
-    return () => {
-      clearInterval(typingInterval);
-    };
-  }, []);
+ 
 
   // const isValidEmail = (email) => {
   //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

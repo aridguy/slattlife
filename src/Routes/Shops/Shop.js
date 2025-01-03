@@ -126,8 +126,6 @@ const Shop = () => {
     }
   };
 
- 
-
   return (
     <main>
       <ShopNav />
@@ -202,17 +200,19 @@ const Shop = () => {
                     </button>{" "}
                     &nbsp;
                     <button
-  className="btn btn-whatsapp"
-  onClick={() => {
-    if (product.fields.paymentLink) {
-      window.open(product.fields.paymentLink, "_blank"); // Opens link in a new tab
-    } else {
-      console.log("No payment link available for this product.");
-    }
-  }}
->
-  Buy
-</button>
+                      className="btn btn-whatsapp"
+                      onClick={() => {
+                        if (product.fields.paymentLink) {
+                          window.open(product.fields.paymentLink, "_blank"); // Opens link in a new tab
+                        } else {
+                          console.log(
+                            "No payment link available for this product."
+                          );
+                        }
+                      }}
+                    >
+                      Buy
+                    </button>
                     <button
                       onClick={() => addToCart(product)}
                       className="btn btn-default"
@@ -367,7 +367,9 @@ const Shop = () => {
                     )}
                   </span>{" "}
                   <br />
-                  <button onClick={handleCheckout} className="btn btn-whatsapp">Checkout</button>
+                  <button onClick={handleCheckout} className="btn btn-whatsapp">
+                    Checkout
+                  </button>
                 </div>
               </div>
             </div>

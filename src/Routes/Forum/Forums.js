@@ -1,22 +1,61 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import EmojiPicker from "emoji-picker-react";
 import Smiles from "../../images/smiley.gif";
 import Marquee from "react-fast-marquee";
 
 const Forums = () => {
   const [message, setMessage] = useState("");
+  const [messages, setMessages] = useState([]);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 
+  const API_URL = "https://sheetdb.io/api/v1/pdrvqe7sqns3c";
+
+  // Fetch messages from the API
+  const fetchMessages = async () => {
+    try {
+      const response = await fetch(API_URL);
+      const data = await response.json();
+      setMessages(data); // Assuming the API returns an array of message objects
+    } catch (error) {
+      console.error("Error fetching messages:", error);
+    }
+  };
+
+  // Send a new message to the API
+  const sendMessage = async () => {
+    if (!message.trim()) return; // Prevent empty messages
+    try {
+      const newMessage = { message }; // Adjust to match your API's data structure
+      await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newMessage),
+      });
+      setMessage(""); // Clear input field
+      fetchMessages(); // Refresh messages after sending
+    } catch (error) {
+      console.error("Error sending message:", error);
+    }
+  };
+
+  // Handle emoji selection
   const onEmojiClick = (emojiObject) => {
     setMessage((prev) => prev + emojiObject.emoji);
     setShowEmojiPicker(false);
   };
 
+  // Handle input changes
   const handleInputChange = (e) => {
     setMessage(e.target.value);
   };
 
-  const Dos = () => alert("hi");
+  useEffect(() => {
+    fetchMessages(); // Fetch messages on component mount
+    const interval = setInterval(fetchMessages, 5000); // Poll messages every 5 seconds
+    return () => clearInterval(interval); // Cleanup interval on unmount
+  }, []);
+
+  const Dos = () => alert("Voice message feature coming soon");
 
   return (
     <div>
@@ -26,23 +65,17 @@ const Forums = () => {
             <span style={styles.topic}>🏠 TOPIC: Nigeria Entertainment</span>
           </div>
           <div style={styles.chatWindow}>
-            <div style={styles.messageContainer}>
-              <div style={styles.dp}>H</div>
-              <div style={styles.message}>Hi there, can I join you guys?</div>
-            </div>
-
-            <div style={styles.messageContainer}>
-              <div style={styles.dp}>E</div>
-              <div style={styles.message}>
-                Waddup everyone Eyoman iun da BuildingWaddup everyone Eyoman iun
-                da BuildingWaddup everyone Eyoman iun da Building
+            {messages.map((msg, index) => (
+              <div key={index} style={styles.messageContainer}>
+                <div style={styles.dp}>{msg.sender || "?"}</div>
+                <div style={styles.message}>{msg.message}</div>
               </div>
-            </div>
+            ))}
           </div>
           <div style={styles.inputContainer}>
             <input
               type="text"
-              placeholder="message"
+              placeholder="Type your message..."
               style={styles.input}
               value={message}
               onChange={handleInputChange}
@@ -61,7 +94,9 @@ const Forums = () => {
                 />
               </div>
             )}
-            <button style={styles.sendButton}>SEND</button>
+            <button style={styles.sendButton} onClick={sendMessage}>
+              SEND
+            </button>
           </div>
         </div>
         <div className="container">
@@ -69,7 +104,12 @@ const Forums = () => {
             <div className="col-md-3"></div>
             <div className="col-md-5">
               <div style={styles.caution} className="caution text-white mb-2">
-                <Marquee> &nbsp; &nbsp; &nbsp; hello there, welcome to Slattlife forum please lets all keep and maintain good chat and sanity on the platform, slatlife is a community for the men and not boys, no foul language, no advertisement, no trading of any sort, and no drug related contents/chats, no spamming, share sensitive details at your own risk...SLATT!👌👌👌   </Marquee>
+                <Marquee>
+                  &nbsp; &nbsp; &nbsp; Hello there, welcome to Slattlife forum.
+                  Please maintain good chat etiquette. No foul language, no
+                  advertising, no trading, and no drug-related content. SLATT!
+                  👌👌👌
+                </Marquee>
               </div>
             </div>
             <div className="col-md-4"></div>
@@ -79,6 +119,10 @@ const Forums = () => {
     </div>
   );
 };
+
+
+
+export default Forums;
 
 const styles = {
   caution: {
@@ -194,5 +238,3 @@ const styles = {
     },
   },
 };
-
-export default Forums;
