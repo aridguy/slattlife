@@ -26,7 +26,7 @@ const Shop = () => {
       }
     };
     getAllEntries();
-  }, []);
+  }, [client]);
 
   // Load cart items from localStorage only on component mount
   useEffect(() => {
@@ -34,7 +34,7 @@ const Shop = () => {
     if (storedCartItems) {
       setCartItems(storedCartItems);
     }
-  }, []);
+  }, [client]);
 
   // Update localStorage whenever cartItems state changes after mount
   useEffect(() => {
