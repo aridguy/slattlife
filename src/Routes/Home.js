@@ -12,6 +12,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 // import Gif from "../Assets/comnity.gif";
 import { useNavigate } from "react-router-dom";
+import InstallPrompt from "../InstallPrompt";
 
 function App() {
   const navigate = useNavigate();
@@ -40,77 +41,7 @@ function App() {
   handlePlay()
 
 
-  //   const showAlert = async () => {
-  //     const { value: accept } = await Swal.fire({
-  //       title: "Terms and conditions",
-  //       input: "checkbox",
-  //       inputValue: 1,
-  //       allowOutsideClick: false,
-  //       inputPlaceholder:
-  //         "For our site to function properly you need to agree with our terms and conditions",
-  //       confirmButtonText:
-  //         "Continue&nbsp;<i className='fa fa-arrow-right'></i>",
-  //       inputValidator: (result) => {
-  //         return !result && "You need to agree with T&C";
-  //       },
-  //     });
-  //     if (accept) {
-  //       Swal.fire("You agreed with T&C :)");
-  //     }
-  //   };
 
-  //   showAlert();
-  // }, []);
-
- 
-
-  // const isValidEmail = (email) => {
-  //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  //   return emailRegex.test(email);
-  // };
-
-  // const SendEmails = (e) => {
-  //   e.preventDefault();
-  //   const email = inputRef.current.value;
-  //   if (isValidEmail(email)) {
-  //     axios
-  //       .get(
-  //         `https://sheetdb.io/api/v1/by3dj0u3ntdiz/search?email=${encodeURIComponent(
-  //           email
-  //         )}`
-  //       )
-  //       .then((response) => {
-  //         if (response.data.length > 0) {
-  //           Swal.fire({
-  //             icon: "warning",
-  //             text: "This email has already been used.",
-  //           });
-  //         } else {
-  //           axios
-  //             .post("https://sheetdb.io/api/v1/by3dj0u3ntdiz", { email })
-  //             .then((response) => {
-  //               Swal.fire({
-  //                 icon: "success",
-  //                 text: "Successfully subscribed Slatt!",
-  //               });
-  //               inputRef.current.value = "";
-  //             })
-  //             .catch((error) => {
-  //               console.error("Error sending email:", error);
-  //             });
-  //         }
-  //       })
-  //       .catch((error) => {
-  //         console.error("Error checking email:", error);
-  //         Swal.fire({
-  //           icon: "error",
-  //           text: "An error occurred while checking email. Please try again.",
-  //         });
-  //       });
-  //   } else {
-  //     Swal.fire({ icon: "error", text: "Use a valid email Slatt!" });
-  //   }
-  // };
 
   // TO UPDATE THE SCROLLING TEXT
   const OpenMenus = () => navigate("/menu");
@@ -125,7 +56,7 @@ function App() {
         const entries = await client.getEntries({
           content_type: "scrollingMessage",
         });
-        console.log(entries);
+        // console.log(entries);
         setScrollingText(entries.items);
       } catch (error) {
         console.log(error);
@@ -137,6 +68,7 @@ function App() {
   return (
     <div className="glitch">
       <div className="app-container">
+      
         <div className="--secondlevel-parent container">
           <div>
             <div>
@@ -148,6 +80,7 @@ function App() {
               <span onClick={OpenMenus} className="starte text-with-glow">
                 BOARD IN
               </span>
+              <InstallPrompt />
             </div>
             <div>
               <video ref={videoRef} width="220" height="140">
