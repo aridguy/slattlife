@@ -1,48 +1,17 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../App.css";
 import Logo from "../images/brand-name-white.png";
 import Logo1 from "../images/slatt-icon.png";
-import Vids from "../Assets/animated-home.mp4";
 import { createClient } from "contentful";
-
 import Marquee from "react-fast-marquee";
-// import Sounds from "../sounds.mp3";
 import "../AnimBg.css";
-import AOS from "aos";
 import "aos/dist/aos.css";
-// import Gif from "../Assets/comnity.gif";
 import { useNavigate } from "react-router-dom";
 import InstallPrompt from "../InstallPrompt";
+import Community from "../Assets/menu/communityy.gif"
 
 function App() {
   const navigate = useNavigate();
-  const videoRef = useRef(null);
-  const handlePlay = () => {
-    if (videoRef.current) {
-      videoRef.current.play();
-    }
-  };
-
-  useEffect(() => {
-    const video = videoRef.current;
-
-    if (video) {
-      video.play(); // Play the video
-      video.loop = true; // Enable looping
-      video.muted = true; // Mute the video for autoplay policies
-    }
-  }, []);
-
-  useEffect(() => {
-    AOS.init();
-    // handlePlay()
-  }, []);
-
-  handlePlay()
-
-
-
-
   // TO UPDATE THE SCROLLING TEXT
   const OpenMenus = () => navigate("/menu");
   const [scrollingText, setScrollingText] = useState([]);
@@ -68,7 +37,6 @@ function App() {
   return (
     <div className="glitch">
       <div className="app-container">
-      
         <div className="--secondlevel-parent container">
           <div>
             <div>
@@ -83,9 +51,13 @@ function App() {
               <InstallPrompt />
             </div>
             <div>
-              <video ref={videoRef} width="220" height="140">
-                <source src={Vids} type="video/mp4" />
-              </video>
+              <img
+                onClick={() => navigate("/community")}
+                src={Community}
+                width={124}
+                alt="Icon 7"
+                className="icon-img img-fluid cursor levitating-image"
+              />
             </div>
             <div>
               <Marquee

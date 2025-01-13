@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 
 import Logo1 from "../images/slatt-icon.png";
+import { useNavigate } from "react-router-dom";
 
 const ShopNav = () => {
+  const Navigate = useNavigate("/")
   const [index, setIndex] = useState(0);
   const messages = [
     "Sale alert: up to 60% off now on. T&Cs apply",
@@ -42,9 +44,15 @@ const ShopNav = () => {
             <div className="col text-center">
               <div className="pages-section">
                 <ul className="page-parent d-flex gap-5 text-white">
-                  <li className="cursor">Home</li>
-                  <li className="cursor">About</li>
-                  <li className="cursor">Contact</li>
+                  <li onClick={() => {
+                    Navigate("/")
+                  }} className="cursor">Home</li>
+                  <li onClick={() => {
+                    Navigate("/about")
+                  }} className="cursor">About</li>
+                  <li onClick={() => {
+                    Navigate("/contact")
+                  }} className="cursor">Contact</li>
                  
                 </ul>
               </div>

@@ -46,7 +46,7 @@ const Menu = () => {
                     backgroundColor: "black",
                     borderRadius: "5px",
                     position: "relative",
-                    paddingTop: "5em",
+                    paddingTop: "4em",
                   }}
                 >
                   <div
@@ -127,7 +127,7 @@ const Menu = () => {
                               onClick={() => Navigate("/media")}
                               src={Media}
                               alt="Icon 4"
-                              className="icon-img img-fluid cursor responsive-icon levitating-image"
+                              className="icon-img img-fluid cursor responsive-icon "
                             />
                             <br />
                             <span className="menuTexts"></span>
