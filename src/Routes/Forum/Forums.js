@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import EmojiPicker from "emoji-picker-react";
 import Smiles from "../../images/smiley.gif";
 import Marquee from "react-fast-marquee";
+import { useNavigate } from "react-router-dom";
 
 const Forums = () => {
+  const Navigate = useNavigate("/")
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
@@ -110,6 +112,9 @@ const Forums = () => {
                   advertising, no trading, and no drug-related content. SLATT!
                   👌👌👌
                 </Marquee>
+                <div>
+                  <button style={{ border: "none" }} className="text-white" onClick={() => { Navigate("/menu") }}> <i className="fas fa-arrow-left-long"></i> back</button>
+                </div>
               </div>
             </div>
             <div className="col-md-4"></div>

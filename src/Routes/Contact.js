@@ -1,8 +1,10 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser"; // Ensure this package is installed
 import Swal from "sweetalert2"; // SweetAlert2 for success message
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
+  const Navigate = useNavigate("/")
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -55,9 +57,9 @@ const Contact = () => {
               <form ref={form} onSubmit={sendEmail}>
                 <div className="row">
                   <div className="mt-3">
-                   
+
                     <input
-                    placeholder="name / nickname"
+                      placeholder="name / nickname"
                       style={formStyles}
                       type="text"
                       className="inputs"
@@ -67,9 +69,9 @@ const Contact = () => {
                     />
                   </div>
                   <div className="mt-3">
-                    
+
                     <input
-                    placeholder="email"
+                      placeholder="email"
                       style={formStyles}
                       type="email"
                       className="inputs "
@@ -80,10 +82,10 @@ const Contact = () => {
                   </div>
 
                   <div className="mt-3">
-                    
+
                     <textarea
-                    placeholder="some messages"
-                    style={{height: "12em"}}
+                      placeholder="some messages"
+                      style={{ height: "12em" }}
                       className="inputs text-white"
                       id="your-message"
                       name="message" // Match EmailJS variable
@@ -108,18 +110,15 @@ const Contact = () => {
           </div>
         </div>
         <div className="d-flex gap-5">
-          <a style={{ color: "#3b5998" }} href="#!" role="button">
-            <i class="fab fa-facebook-f fa-lg"></i>
-          </a>
-          <a style={{ color: "#55acee" }} href="#!" role="button">
-            <i class="fab fa-twitter fa-lg"></i>
-          </a>
           <a style={{ color: "#dd4b39" }} href="#!" role="button">
             <i class="fab fa-google fa-lg"></i>
           </a>
           <a style={{ color: "#ac2bac" }} href="#!" role="button">
             <i class="fab fa-instagram fa-lg"></i>
           </a>
+        </div>
+        <div>
+          <button style={{ border: "none" }} className="text-white" onClick={() => { Navigate("/menu") }}> <i className="fas fa-arrow-left-long"></i> back</button>
         </div>
       </div>
 

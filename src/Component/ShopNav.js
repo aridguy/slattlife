@@ -37,33 +37,42 @@ const ShopNav = () => {
                   src={Logo1}
                   height="50"
                   alt="MDB Logo"
+                  className="cursor"
                   loading="lazy"
+                  onClick={() => {
+                    Navigate("/menu")
+                  }}
                 />
               </div>
             </div>
             <div className="col text-center">
-              <div className="pages-section">
-                <ul className="page-parent d-flex gap-5 text-white">
-                  <li onClick={() => {
-                    Navigate("/")
-                  }} className="cursor">Home</li>
-                  <li onClick={() => {
-                    Navigate("/about")
-                  }} className="cursor">About</li>
-                  <li onClick={() => {
-                    Navigate("/contact")
-                  }} className="cursor">Contact</li>
+             { 
+              
+              // <div className="pages-section">
+              //   <ul className="page-parent d-flex gap-5 text-white">
+              //     <li onClick={() => {
+              //       Navigate("/")
+              //     }} className="cursor">Home</li>
+              //     <li onClick={() => {
+              //       Navigate("/about")
+              //     }} className="cursor">About</li>
+              //     <li onClick={() => {
+              //       Navigate("/contact")
+              //     }} className="cursor">Contact</li>
                  
-                </ul>
-              </div>
+              //   </ul>
+              // </div>
+            }
             </div>
             <div className="col text-center">
-              <div className="d-flex gap-4">
-                <i className="bi bi-instagram cursor text-white"></i>
-                <i className="bi bi-snapchat cursor text-white"></i>
-                <i className="bi bi-youtube cursor text-white"></i>
-                <i className="bi bi-tiktok cursor text-white"></i>
-              </div>
+              {
+              //   <div className="d-flex gap-4">
+              //   <i className="bi bi-instagram cursor text-white"></i>
+              //   <i className="bi bi-snapchat cursor text-white"></i>
+              //   <i className="bi bi-youtube cursor text-white"></i>
+              //   <i className="bi bi-tiktok cursor text-white"></i>
+              // </div>
+            }
             </div>
           </div>
         </div>

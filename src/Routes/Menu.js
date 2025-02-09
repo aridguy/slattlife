@@ -130,7 +130,12 @@ const Menu = () => {
                               className="icon-img img-fluid cursor responsive-icon "
                             />
                             <br />
-                            <span className="menuTexts"></span>
+                            <span
+                            onClick={() => Navigate("/media")}
+                            className="menuTexts cursor text-white"
+                          >
+                            Media
+                          </span>
                           </div>
                         </div>
                       </div>
@@ -168,7 +173,7 @@ const Menu = () => {
                           <img
                             onClick={() => Navigate("/community")}
                             src={Community}
-                            width={124}
+                            width={134}
                             alt="Icon 7"
                             className="icon-img img-fluid cursor levitating-image"
                           />
