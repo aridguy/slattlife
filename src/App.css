@@ -742,7 +742,10 @@ body {
 
 
 
-
+.titles{
+  color: white;
+  background-color: orange;
+}
 
 .menu_parent{
   position: relative;

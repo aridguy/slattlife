@@ -156,6 +156,7 @@ const Menu = () => {
                         <div className="col-6 col-md-3">
                           <div>
                             <img
+                            style={{border: "6px solid orange", borderTopLeftRadius: "10px", borderBottomRightRadius: "10px"}}
                               onClick={() => Navigate("/media")}
                               src={Media}
                               alt="Icon 4"

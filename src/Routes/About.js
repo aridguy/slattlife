@@ -61,6 +61,7 @@ const About = () => {
       try {
         const entries = await client.getEntries();
         setArtists(entries.items);
+        //  console.log(entries.items);
       } catch (error) {
         console.error("Error fetching entries:", error);
       }
@@ -117,7 +118,7 @@ const About = () => {
             People
           </h1>
           <div>
-            <i className="cursor" onClick={() =>{
+            <i className="cursor" onClick={() => {
               navigate("/menu")
             }}>back</i>
           </div>
@@ -280,6 +281,7 @@ const About = () => {
                 >
                   {selectedArtist.fields.artistSkills}
                 </small>
+
               </div>
             </div>
             <div className="d-details px-3 mt-2 gap-1 d-flex">
@@ -292,6 +294,12 @@ const About = () => {
                   </a>
                 )
               )}
+            </div>
+            <div className="container text-white d-flex gap-3">
+              <a rel="noreferrer" target="_blank" href={selectedArtist.fields.artistMediaLinks.socialMediaLinks[1].url}> <i class="fab fa-instagram"></i></a>
+              <a rel="noreferrer" target="_blank" href={selectedArtist.fields.artistMediaLinks.socialMediaLinks[0].url}> <i class="fab fa-youtube"></i></a>
+              <a rel="noreferrer" target="_blank" href={selectedArtist.fields.artistMediaLinks.socialMediaLinks[2].url}> <i class="fab fa-spotify"></i></a>
+              <a rel="noreferrer" target="_blank" href={selectedArtist.fields.artistMediaLinks.socialMediaLinks[3].url}>  <i class="fas fa-music"></i></a>
             </div>
             <h4 className="text-white px-2">Overview</h4>
             <div className="theBio p-4">
@@ -335,12 +343,12 @@ const About = () => {
               className="mainPicsAbout-People"
             >
               <div style={{ position: "absolute", bottom: 0, left: 0 }}>
-                <h4 className="titles text-white mx-3">
+                <h4 className="titles mx-3">
                   {selectedPeople.fields.peopleName}
                 </h4>{" "}
                 <small
-                  className="text-white mx-3 py-5"
-                  style={{ position: "relative", bottom: "9px" }}
+                  className="text-white mx-3 "
+                  style={{ position: "relative", bottom: "9px", background:"red" }}
                 >
                   {selectedPeople.fields.peopleBio}
                 </small>
