@@ -37,7 +37,7 @@ const Menu = () => {
           <div className="container mt-3">
             <div className="row">
               <div className="col-md-2"></div>
-              <div className="col-md-8">
+              <div className="col-md-8 menu_parent">
                 <div
                   className="fixers"
                   style={{
@@ -132,7 +132,7 @@ const Menu = () => {
                             <br />
                             <span
                             onClick={() => Navigate("/media")}
-                            className="menuTexts cursor text-white"
+                            className="menuTexts media_text cursor text-white"
                           >
                             Media
                           </span>
@@ -173,14 +173,14 @@ const Menu = () => {
                           <img
                             onClick={() => Navigate("/community")}
                             src={Community}
-                            width={134}
+                            width={160}
                             alt="Icon 7"
-                            className="icon-img img-fluid cursor levitating-image"
+                            className="icon-img img-fluid cursor "
                           />
                           <br />
                           <span
                             onClick={() => Navigate("/community")}
-                            className="menuTexts cursor text-white"
+                            className="menuTexts cursor text-white mt-5"
                           >
                             Community
                           </span>

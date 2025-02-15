@@ -227,6 +227,8 @@ button {
   font-size: 10px;
   cursor: pointer;
 }
+
+
 /* Media query for laptop screens and higher */
 @media screen and (min-width: 1440px) {
   /* Styles for laptop and larger screens */
@@ -607,7 +609,12 @@ body {
 
 .levitating-image {
   animation: levitate 3s ease-in-out infinite; /* Levitation animation */
-  width: 15em;
+  width: 5em;
+}
+
+.homeCom {
+  position: relative;
+  bottom: 28px;
 }
 
 @keyframes levitate {
@@ -636,13 +643,7 @@ body {
   }
 }
 
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-  .dLogo {
-    width: 8.5em;
-    margin-top: 4em;
-  }
-}
+
 
 @keyframes spin3D {
   from {
@@ -691,4 +692,73 @@ body {
 .medias-social{
   position: relative;
   bottom: 1em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 992px) {
+  .dLogo {
+    width: 8.5em;
+    margin-top: 4em;
+  }
+
+  .menu_parent{
+    position: relative;
+    top: 3em;
+  }
+
+  .media_text{
+    position: relative;
+    top: 5.3em;
+  }
 }

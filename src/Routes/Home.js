@@ -55,9 +55,9 @@ function App() {
               <img
                 onClick={() => navigate("/community")}
                 src={Community}
-                width={124}
+                width={200}
                 alt="Icon 7"
-                className="icon-img img-fluid cursor levitating-image"
+                className="icon-img img-fluid cursor homeCom"
               />
             </div>
             {
