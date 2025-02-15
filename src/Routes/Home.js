@@ -103,7 +103,7 @@ function App() {
                 <br />
 
                 <address className="text-white press-start-font relative text-center">
-                &copy; SLATTLIFE 2024
+                &copy; SLATTLIFE {new Date().getFullYear()}
               </address>
               </div>
             <div className="sound">
