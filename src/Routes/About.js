@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"
 import { createClient } from "contentful";
+// import { Navigate } from "react-router-dom";
 
 const About = () => {
+
+  const navigate = useNavigate("/");
+
   const [toggleAboutUs, setToggleAboutUs] = useState(false);
   const [artists, setArtists] = useState([]);
   const [toggleArtistList, setToggleArtistList] = useState(false);
@@ -20,6 +25,7 @@ const About = () => {
   const showAbouts = () => {
     setToggleAboutUs(true);
   };
+
 
   const showArtistDetails = (artist) => {
     setSelectedArtist(artist);
@@ -86,6 +92,8 @@ const About = () => {
 
   const PeopleBgUrl = selectedPeople?.fields?.peopleImage?.fields?.file?.url;
 
+
+
   return (
     <div>
       <div
@@ -108,6 +116,11 @@ const About = () => {
           <h1 onClick={showPeopleList} className="cursor">
             People
           </h1>
+          <div>
+            <i className="cursor" onClick={() =>{
+              navigate("/menu")
+            }}>back</i>
+          </div>
         </section>
 
         {toggleAboutUs && (

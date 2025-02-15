@@ -105,10 +105,14 @@ html {
 
 .press-start {
   font-family: "press Start 2P";
-  font-size: 2rem;
+  font-size: 1rem;
   z-index: 1;
   position: relative;
   /* bottom: 12px; */
+}
+
+.press-start-font{
+  font-family: monospace;
 }
 
 .text-center a {
@@ -171,7 +175,6 @@ html {
   opacity: 1;
   transition: opacity 1s ease-in-out;
 }
-
 .cursor {
   cursor: pointer;
 }
@@ -212,7 +215,6 @@ button {
   background-color: transparent;
   outline: none;
   margin-top: 1.3em;
-
   z-index: 200; /* Make sure buttons are also in front */
   position: relative; /* Ensure the z-index works by setting position to relative */
 }
@@ -235,14 +237,6 @@ button {
   }
 }
 
-/* .fixers {
-  width: "100%";
-  height: "28em";
-  background-color: "grey";
-  border-radius: "5px";
-  position: "relative";
-  padding-top: "5em";
-} */
 @media (max-width: 768px) {
   .fixers {
     width: 100%;
@@ -272,14 +266,16 @@ input:focus {
 .text-with-glow {
   color: #fff; /* Text color */
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff;
-  /* transition: 1s; */
+  position: relative;
+    bottom: 1.5em;
+  
 }
 
 /* Image to rotate horizontally */
 .rotate-image {
-  position: absolute; /* Position the image absolutely within the container */
-  top: 0; /* Position from the top of the container */
-  left: 50%; /* Move the image to the center horizontally */
+  /* position: absolute; Position the image absolutely within the container */
+  /* top: 0; Position from the top of the container */
+  /* left: 50%; Move the image to the center horizontally */
   transform: translateX(-50%); /* Center the image horizontally */
   animation: rotateHorizontal 4s linear infinite; /* Apply the rotation animation */
 }
@@ -349,9 +345,13 @@ input:focus {
 /* footer3 contents */
 .futs {
   font-family: "teko";
+  position: relative;
+    bottom: 2em;
+
 }
 .futs1 {
   font-family: "press Start 2P";
+  
 }
 
 /* making sure audio is not visible by default */
@@ -419,11 +419,6 @@ input:focus {
   position: relative;
 }
 
-/* .iconsMedia {
-  font-size: 17px;
-  cursor: pointer;
-  z-index: 999;
-} */
 .bios {
   position: relative;
   bottom: 1em;
@@ -489,10 +484,6 @@ input:focus {
   /* text-align: center; */
 }
 
-/* .single-product-wraps{
-  text-align: center;
-} */
-
 /* FORUM SECTION OF THE APPLICATION */
 
 .forum_wrap {
@@ -543,16 +534,10 @@ input:focus {
 .footOfHome {
   margin-top: 1em;
 }
-.--input-container {
+/* .--input-container {
   position: relative;
   bottom: 2em;
   margin-top: 1em;
-}
-
-/* menu */
-/* .homeBody{
-  z-index: 9999;
-  position: relative;
 } */
 
 /* waving text */
@@ -622,6 +607,7 @@ body {
 
 .levitating-image {
   animation: levitate 3s ease-in-out infinite; /* Levitation animation */
+  width: 15em;
 }
 
 @keyframes levitate {
@@ -650,3 +636,59 @@ body {
   }
 }
 
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .dLogo {
+    width: 8.5em;
+    margin-top: 4em;
+  }
+}
+
+@keyframes spin3D {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.rotate-3d {
+  animation: spin3D 3s linear infinite;
+  transform-style: preserve-3d;
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* @media only screen and (min-width: 1200px) {} */
+
+.slatlifeTxt {
+  position: relative;
+  bottom: 33px;
+  width: 270px;
+}
+
+.starte{
+
+  position: relative;
+  bottom: 3em;
+}
+
+.news-letter-box {
+  position: relative;
+  bottom: 1.6em;
+}
+
+.sounds{
+  position: relative;
+  bottom: -1.8em;
+}
+
+.volume{
+  position: relative;
+  bottom: 2.5em;
+}
+
+.medias-social{
+  position: relative;
+  bottom: 1em;
+}
