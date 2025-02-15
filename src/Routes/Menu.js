@@ -16,6 +16,8 @@ import ChatChill from "../Assets/menu/chat&chill.PNG";
 import Community from "../Assets/menu/communityy.gif";
 import Media from "../Assets/menu/media.gif";
 import { useNavigate } from "react-router-dom";
+import Marquee from "react-fast-marquee";
+import { createClient } from "contentful";
 
 const Menu = () => {
   const Navigate = useNavigate("/");
@@ -29,6 +31,26 @@ const Menu = () => {
   // const navigate = useNavigate();
 
   // prompting all icons
+  const [scrollingText, setScrollingText] = useState([]);
+  const client = createClient({
+    space: "q2ho18w4i1sf",
+    accessToken: "thM3Zua3i_RWhRQ4DQBHhfOQl56zNuXWTQJ0XSo1viY",
+  });
+  useEffect(() => {
+    const getAllEntries = async () => {
+      try {
+        const entries = await client.getEntries({
+          content_type: "menuSplashScreen",
+        });
+       
+        setScrollingText(entries.items);
+        //  console.log(entries.items);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getAllEntries();
+  }, [client]);
 
   return (
     <div>
@@ -38,11 +60,21 @@ const Menu = () => {
             <div className="row">
               <div className="col-md-2"></div>
               <div className="col-md-8 menu_parent">
+                <div style={{width: "16em", height: "1em", position: "relative", bottom:"-20px",}}>
+                <Marquee
+                  style={{ letterSpacing: "3px" }}
+                  className="text-white futs"
+                >
+                  {scrollingText.map((item, index) => (
+                    <span className="mb-3" key={index}>{item.fields.menuAlert} </span> // Assuming 'message' is the field you want to display
+                  ))}
+                </Marquee>
+                </div>
                 <div
                   className="fixers"
                   style={{
                     width: "100%",
-                    height: "29em",
+                    height: "28em",
                     backgroundColor: "black",
                     borderRadius: "5px",
                     position: "relative",
@@ -173,7 +205,7 @@ const Menu = () => {
                           <img
                             onClick={() => Navigate("/community")}
                             src={Community}
-                            width={160}
+                            width={140}
                             alt="Icon 7"
                             className="icon-img img-fluid cursor "
                           />
