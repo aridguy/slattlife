@@ -15,10 +15,12 @@ function App() {
   // TO UPDATE THE SCROLLING TEXT
   const OpenMenus = () => navigate("/menu");
   const [scrollingText, setScrollingText] = useState([]);
+
   const client = createClient({
     space: "q2ho18w4i1sf",
     accessToken: "fxp-pdOyuEnp2mYpY3ujUC0GfbaV4q3hyELwukdZD90",
   });
+
   useEffect(() => {
     const getAllEntries = async () => {
       try {
@@ -33,6 +35,8 @@ function App() {
     };
     getAllEntries();
   }, [client]);
+
+  // 
   const BoardIn = " >BOARD IN<";
 
   return (
@@ -67,6 +71,7 @@ function App() {
                   style={{ letterSpacing: "3px" }}
                   className="text-white futs"
                 >
+                
                   {scrollingText.map((item, index) => (
                     <span className="mb-3" key={index}>{item.fields.scrollingtext} </span> // Assuming 'message' is the field you want to display
                   ))}
