@@ -357,9 +357,7 @@ input:focus {
 }
 
 /* making sure audio is not visible by default */
-.hidden {
-  display: none;
-}
+
 
 .bigger {
   font-size: 1.3em;

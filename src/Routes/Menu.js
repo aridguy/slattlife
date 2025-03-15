@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from "react";
-
-// import Logo from "../images/brand-name-white.png";
-// import { useNavigate } from "react-router-dom";
-// import Swal from "sweetalert2";
 import Login from "./LoginForm/Login";
 import AOS from "aos";
-// import { useNavigate } from "react-router-dom";
-// IMPORTING ALL NAVIGATION ICONS
 import About from "../Assets/menu/about.PNG";
 import Contact from "../Assets/menu/contact.png";
 import Shop from "../Assets/menu/shop.png";
