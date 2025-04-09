@@ -111,7 +111,7 @@ html {
   /* bottom: 12px; */
 }
 
-.press-start-font{
+.press-start-font {
   font-family: monospace;
 }
 
@@ -228,15 +228,14 @@ button {
   cursor: pointer;
 }
 
-
 /* Media query for laptop screens and higher */
 @media screen and (min-width: 1440px) {
   /* Styles for laptop and larger screens */
 
-  .menuPeople {
+  /* .menuPeople {
     position: relative;
     top: 43m;
-  }
+  } */
 }
 
 @media (max-width: 768px) {
@@ -269,8 +268,7 @@ input:focus {
   color: #fff; /* Text color */
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff;
   position: relative;
-    bottom: 1.5em;
-  
+  bottom: 1.5em;
 }
 
 /* Image to rotate horizontally */
@@ -348,16 +346,13 @@ input:focus {
 .futs {
   font-family: "teko";
   position: relative;
-    bottom: 2em;
-
+  bottom: 2em;
 }
 .futs1 {
   font-family: "press Start 2P";
-  
 }
 
 /* making sure audio is not visible by default */
-
 
 .bigger {
   font-size: 1.3em;
@@ -633,6 +628,9 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  .levitating-image {
+    width: 4em;
+  }
   .responsive-icon {
     width: 100px; /* Adjusted size for mobile */
     position: static; /* Avoid absolute positioning on smaller screens */
@@ -640,8 +638,6 @@ body {
     display: block; /* Ensure proper display */
   }
 }
-
-
 
 @keyframes spin3D {
   from {
@@ -666,8 +662,7 @@ body {
   width: 270px;
 }
 
-.starte{
-
+.starte {
   position: relative;
   bottom: 3em;
 }
@@ -677,7 +672,7 @@ body {
   bottom: 1.6em;
 }
 
-.sounds{
+.sounds {
   position: relative;
   bottom: -1.8em;
 }
@@ -687,65 +682,17 @@ body {
   bottom: 3.8em;
 }
 
-.medias-social{
+.medias-social {
   position: relative;
   bottom: 1em;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.titles{
+.titles {
   color: white;
   background-color: orange;
 }
 
-.menu_parent{
+.menu_parent {
   position: relative;
   top: -2em;
 }
@@ -756,12 +703,12 @@ body {
     margin-top: 4em;
   }
 
-  .menu_parent{
+  .menu_parent {
     position: relative;
     top: 3em;
   }
 
-  .media_text{
+  .media_text {
     position: relative;
     top: 5.3em;
   }

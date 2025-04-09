@@ -20,10 +20,7 @@ const Menu = () => {
     AOS.init();
   }, []);
   const [showLoginModal, setShowLoginModal] = useState(false);
-
   const CloseLoginModal = () => setShowLoginModal(false);
-  // const navigate = useNavigate();
-
   // prompting all icons
   const [scrollingText, setScrollingText] = useState([]);
   const client = createClient({
@@ -36,7 +33,6 @@ const Menu = () => {
         const entries = await client.getEntries({
           content_type: "menuSplashScreen",
         });
-       
         setScrollingText(entries.items);
         //  console.log(entries.items);
       } catch (error) {
@@ -54,51 +50,48 @@ const Menu = () => {
             <div className="row">
               <div className="col-md-2"></div>
               <div className="col-md-8 menu_parent">
-                <div style={{width: "16em", height: "1em", position: "relative", bottom:"-20px",}}>
-                <Marquee
-                  style={{ letterSpacing: "3px" }}
-                  className="text-white futs"
-                >
-                  {scrollingText.map((item, index) => (
-                    <span className="mb-3" key={index}>{item.fields.menuAlert} </span> // Assuming 'message' is the field you want to display
-                  ))}
-                </Marquee>
+                <div style={{ width: "16em", height: "1em", position: "relative", bottom: "-20px", }}>
+                  <Marquee
+                    style={{ letterSpacing: "3px" }}
+                    className="text-white futs"
+                  >
+                    {scrollingText.map((item, index) => (
+                      <span className="mb-3" key={index}>{item.fields.menuAlert} </span> // Assuming 'message' is the field you want to display
+                    ))}
+                  </Marquee>
                 </div>
                 <div
                   className="fixers"
                   style={{
                     width: "100%",
-                    height: "28em",
+                    height: "25em",
                     backgroundColor: "black",
                     borderRadius: "5px",
-                    position: "relative",
-                    paddingTop: "4em",
                   }}
                 >
                   <div
                     style={{
                       width: "100%",
-                      height: "4em",
                       background: "#545454",
                       position: "absolute",
                       top: "0px",
-                      padding: "1em",
+                      padding: "0.5em",
                       borderRadius: "7px",
                     }}
                   >
-                    <span className="text-white text-uppercase brandFont cursor">
+                    <small className="text-white text-uppercase brandFont cursor">
                       Slattlife
-                    </span>
+                    </small>
                   </div>
                   <div>
-                    <div className="container mt-2">
-                      <div className="row text-center menuPeople text-uppercase ">
+                    <div className="container">
+                      <div className="row text-center text-uppercase ">
                         <div className="col-6 col-md-3 ">
                           <div>
                             <img
                               onClick={() => Navigate("/about")}
                               src={About}
-                              width={70}
+                              width={50}
                               alt="Icon 1"
                               className="icon-img img-fluid cursor levitating-image"
                             />
@@ -150,7 +143,7 @@ const Menu = () => {
                         <div className="col-6 col-md-3">
                           <div>
                             <img
-                            style={{border: "6px solid orange", borderTopLeftRadius: "10px", borderBottomRightRadius: "10px"}}
+                              style={{ border: "6px solid orange", borderTopLeftRadius: "10px", borderBottomRightRadius: "10px" }}
                               onClick={() => Navigate("/media")}
                               src={Media}
                               alt="Icon 4"
@@ -158,15 +151,16 @@ const Menu = () => {
                             />
                             <br />
                             <span
-                            onClick={() => Navigate("/media")}
-                            className="menuTexts media_text cursor text-white"
-                          >
-                            Media
-                          </span>
+                              onClick={() => Navigate("/media")}
+                              className="menuTexts media_text cursor text-white"
+                            >
+                              Media
+                            </span>
                           </div>
                         </div>
                       </div>
-                      <div className="row text-center text-uppercase mt-3">
+                      {/*second row for the ocons */}
+                      <div className="row text-center text-uppercase ">
                         <div className="col-6 col-md-3">
                           <img
                             onClick={() => Navigate("/forums")}
