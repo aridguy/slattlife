@@ -3,6 +3,7 @@ import { createClient } from "contentful";
 
 
 const Media = () => {
+  
   const [defaultMediaScreen, setDefaultMediaScreen] = useState(true);
   const [pictureScreen, setPictureScreen] = useState(false);
   const [videoScreen, setVideoScreen] = useState(false);
@@ -152,7 +153,7 @@ const Media = () => {
               <div className="col-md-2"></div>
             </div>
             <div className="row mt-5">
-              <div className="col text-white d-flex flex-column justify-content-center align-items-center">
+              <div className="col text-white d-flex trust flex-column justify-content-center align-items-center">
                 <div className="row">
                   <div className="video-container">
                     <div dangerouslySetInnerHTML={{ __html: videoMediaLink }} />
